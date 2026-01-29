@@ -1,12 +1,24 @@
+import shutil
 from pathlib import Path
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib import style
 
+# Check if LaTeX is available
+LATEX_AVAILABLE = shutil.which("latex") is not None
+
 # Register the style as "drip" in matplotlib's style library
 _style_file = Path(__file__).parent / "custom.mplstyle"
-style.library["drip"] = mpl.rc_params_from_file(_style_file, use_default_template=False)
+_style_params = mpl.rc_params_from_file(_style_file, use_default_template=False)
+
+# If LaTeX is not available, disable it and use mathtext instead
+if not LATEX_AVAILABLE:
+    _style_params["text.usetex"] = False
+    _style_params["text.latex.preamble"] = ""
+    _style_params["mathtext.fontset"] = "cm"  # Computer Modern for math
+
+style.library["drip"] = _style_params
 style.available[:] = sorted(style.library.keys())
 
 # Load the style temporarily to extract the color cycle

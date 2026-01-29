@@ -57,6 +57,18 @@ from matplotdrip import colormaps
 plt.imshow(..., cmap="red_white_blue_r")
 ```
 
+## LaTeX
+
+For the best-looking plots, install LaTeX on your system. The style will automatically use LaTeX for text rendering when available, giving you proper Computer Modern fonts and math typesetting.
+
+If LaTeX is not installed, the style falls back to matplotlib's built-in mathtext renderer with Computer Modern fonts - still looks good, just not quite as crisp.
+
+**Installing LaTeX:**
+
+- **macOS:** `brew install --cask mactex` or install [BasicTeX](https://www.tug.org/mactex/morepackages.html) for a smaller footprint
+- **Ubuntu/Debian:** `sudo apt install texlive-latex-extra texlive-fonts-recommended dvipng cm-super`
+- **Windows:** Install [MiKTeX](https://miktex.org/) or [TeX Live](https://www.tug.org/texlive/)
+
 ## Credit
 
 The colour cycle is from [manim](https://docs.manim.community/en/stable/reference/manim.utils.color.manim_colors.html), and the `red_white_blue` colourmap is from [this repo](https://github.com/c-white/colormaps).
