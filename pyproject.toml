@@ -1,7 +1,7 @@
 [project]
-name = "mpl_drip"
+name = "matplotdrip"
 dynamic = ["version"]
-description = "Make your mpl dripped up."
+description = "Make your matplotlib dripped up."
 readme = "README.md"
 authors = [{ name = "Tom Hilder", email = "thomas.hilder@monash.edu" }]
 requires-python = ">=3.9"
@@ -19,7 +19,7 @@ requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build]
-include = ["src/mpl_drip/custom.mplstyle", "src/mpl_drip/py.typed"]
+include = ["src/matplotdrip/custom.mplstyle", "src/matplotdrip/py.typed"]
 exclude = ["**/__pycache__/**"]
 
 [tool.hatch.version]
@@ -29,7 +29,7 @@ source = "vcs"
 include = ["src/**", "README.md", "LICENSE", "examples/**"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/mpl_drip"]
+packages = ["src/matplotdrip"]
 
 [tool.hatch.build.hooks.vcs]
-version-file = "src/mpl_drip/_version.py"
+version-file = "src/matplotdrip/_version.py"

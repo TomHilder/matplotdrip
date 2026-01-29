@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-import mpl_drip
+import matplotdrip
 
 rng = np.random.default_rng(seed=0)
 
