@@ -1,14 +1,18 @@
 from pathlib import Path
 
+import matplotlib as mpl
 import matplotlib.pyplot as plt
+from matplotlib import style
 
-# Load the style sheet (so it applies to the rcParams)
-style_file = Path(__file__).parent / "custom.mplstyle"
-plt.style.use(style_file)
+# Register the style as "drip" in matplotlib's style library
+_style_file = Path(__file__).parent / "custom.mplstyle"
+style.library["drip"] = mpl.rc_params_from_file(_style_file, use_default_template=False)
+style.available[:] = sorted(style.library.keys())
 
-# Extract the color cycle from the style
-_prop_cycle = plt.rcParams["axes.prop_cycle"]
-COLORS = _prop_cycle.by_key().get("color", [])
+# Load the style temporarily to extract the color cycle
+with plt.style.context("drip"):
+    _prop_cycle = plt.rcParams["axes.prop_cycle"]
+    COLORS = _prop_cycle.by_key().get("color", [])
 
 
 # Make colors accessible by name

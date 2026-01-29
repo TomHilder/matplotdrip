@@ -37,8 +37,9 @@ where in the last step we made an editable install with pip but you can do whate
 To use the plotting style:
 
 ```python
-# Inside an environment where mpl_drip is installed (no need to import)
-plt.style.use("mpl_drip.custom")
+import mpl_drip  # Registers the style with matplotlib
+
+plt.style.use("drip")
 ```
 
 To get a colour from the cycle by index, wrapping around if the index exceeds the number of colours:

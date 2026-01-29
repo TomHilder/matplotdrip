@@ -5,7 +5,7 @@ import mpl_drip
 
 rng = np.random.default_rng(seed=0)
 
-plt.style.use("mpl_drip.custom")
+plt.style.use("drip")
 
 
 def plot_beta_hist(ax, a, b):
